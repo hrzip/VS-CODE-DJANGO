@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Početna{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Dobrodošli!</h1>
+  <p>Ovo je stranica za testiranje stvari koje možda jesam ili nisam trebao započeti u životu, ali neda vrag mira</p>
+  <br>
+  
+  <h3>Ovdje su najnoviji postovi:</h3>
+
+  {% for post in posts %}
+    <div class="post-card">
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.descr }}</p>
+      <small>Objavljeno: {{ post.time }}</small>
+    </div>
+  {% empty %}
+    <p>Trenutno nema objava.</p>
+  {% endfor %}
+</div>
+{% endblock %}
